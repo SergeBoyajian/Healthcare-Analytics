@@ -292,7 +292,6 @@ if rad=="Exploratory Analysis":
     with a3:
         """#####  Age & CVDs"""
         #Segment age column to three main groups to act as a category
-        data['Age'] = pd.cut(data['Age'], bins=[30,49,69,99], labels=['30-50', '50-70', '70+'])
         #Select observations that are only attained by CVDs (of class 1) out of the created age groups above
         df=data.loc[data['Target'] == 1, 'Age']
         df2=df.value_counts() .reset_index()
