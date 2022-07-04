@@ -112,7 +112,35 @@ if rad=="Dataset Info":
 ################################################################################    Exploratory Data Analysis ###################################################################
 if rad=="Exploratory Analysis":
 ######################################### Density Plots
+#Age Filter in sidebar
 
+    with st.sidebar:
+        data['Age'] = pd.cut(data['Age'], bins=[28,49,69,99], labels=['30-50', '50-70', '70+'])
+        data["Age"].astype("category")
+        ages_list=data["Age"].unique().tolist()
+        ages = st.container()
+        all = st.checkbox("Select all", value=True)
+
+        if all:
+            selected_options = ages.multiselect("Select Age Group",
+                ages_list, ages_list)
+        else:
+            selected_options =  ages.multiselect("Select Age Group",
+                ages_list)
+        data = data.loc[data["Age"].isin(selected_options)]
+    #Gender filter in sidebar
+    with st.sidebar:
+        gender_list=data["Gender"].unique().tolist()
+        gender = st.container()
+        all = st.checkbox("All Data", value=True)
+
+        if all:
+            selected_optionss = gender.multiselect("Select Gender",
+                gender_list, gender_list)
+        else:
+            selected_optionss =  gender.multiselect("Select Gender",
+                gender_list)
+        data = data.loc[data["Gender"].isin(selected_optionss)]
     a1,a2,a3 =st.columns(3)
     with a1:
 
