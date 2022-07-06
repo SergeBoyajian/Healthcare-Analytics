@@ -156,7 +156,7 @@ if rad=="Exploratory Analysis":
             #color_discrete_map = {'Male': 'rgb(101,28,50)', 'Female': 'rgb(9,40,30)'}
             hist1= px.histogram(data, x="Rest_Blood_Pressure", color="Gender",category_orders={'Gender':['Female', 'Male']})
             #hist1.update_traces(opacity=0.75)
-            hist1.update_layout(legend=dict(yanchor="top", y=0.9, xanchor="left", x=0.75), autosize=False,
+            hist1.update_layout(legend=dict(yanchor="top", y=0.9, xanchor="left", x=0.65), autosize=False,
         width=500,
         height=400,
         margin=dict(
