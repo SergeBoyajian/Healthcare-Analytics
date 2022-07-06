@@ -98,7 +98,10 @@ if rad=="Dataset Info":
             st.write(f'The dataset has {rows} rows and {columns} columns')
             nan= data.isnull().sum().sum()
             st.write(f"The uploaded dataset has a total of {nan} missing values accross all columns!")
-
+            diz= data["Target"].value_counts()
+            st.write(f"The number of patients who suffer from heart disease is {diz.loc[0]} compared to {diz.loc[1]} who do not in the dataset.")
+            
+            
         with c2:
             """##### Major Features, Summary Statistics"""
             num_features= data[["Age", "Rest_Blood_Pressure", "Cholesterol", "Max_Heart_Rate"]]
@@ -153,7 +156,7 @@ if rad=="Exploratory Analysis":
             #color_discrete_map = {'Male': 'rgb(101,28,50)', 'Female': 'rgb(9,40,30)'}
             hist1= px.histogram(data, x="Rest_Blood_Pressure", color="Gender",category_orders={'Gender':['Female', 'Male']})
             #hist1.update_traces(opacity=0.75)
-            hist1.update_layout(legend=dict(yanchor="top", y=0.9, xanchor="left", x=0.6), autosize=False,
+            hist1.update_layout(legend=dict(yanchor="top", y=0.9, xanchor="left", x=0.75), autosize=False,
         width=500,
         height=400,
         margin=dict(
@@ -174,7 +177,7 @@ if rad=="Exploratory Analysis":
             #color_discrete_map = {'Male': 'rgb(31,119,180)', 'Female': 'rgb(214,39,40)'}
             hist1= px.histogram(data, x="Cholesterol", color="Gender",category_orders={'Gender':['Female', 'Male']})
             #hist1.update_traces(opacity=0.75)
-            hist1.update_layout(legend=dict(yanchor="top", y=0.9, xanchor="left", x=0.6), autosize=False,
+            hist1.update_layout(legend=dict(yanchor="top", y=0.9, xanchor="left", x=0.75), autosize=False,
         width=500,
         height=400,
         margin=dict(
@@ -195,7 +198,7 @@ if rad=="Exploratory Analysis":
             #color_discrete_map = {'Male': 'rgb(31,119,180)', 'Female': 'rgb(214,39,40)'}
             hist1= px.histogram(data, x="Max_Heart_Rate", color="Gender",category_orders={'Gender':['Female', 'Male']})
             #hist1.update_traces(opacity=0.75)
-            hist1.update_layout(legend=dict(yanchor="top", y=0.9, xanchor="left", x=0.6), autosize=False,
+            hist1.update_layout(legend=dict(yanchor="top", y=0.9, xanchor="left", x=0.75), autosize=False,
         width=500,
         height=400,
         margin=dict(
